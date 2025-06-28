@@ -1,4 +1,4 @@
-![University of Barcelona Logo](././Images/figure1.png)
+![University of Barcelona Logo](././Images/Session1/figure1.png)
 
 # Bachelor's Degree in Biomedical Engineering
 ## ROBOTICS AND CONTROL OF BIOMEDICAL SYSTEMS
@@ -27,35 +27,35 @@ This task must be performed individually, and you have to perform this task sess
 
 1.  Open the link to the UR academy programme: [https://www.universal-robots.com/es/academy/](https://www.universal-robots.com/es/academy/)
 
-    ![Universal Robots Academy main page](./Images/figure2.png)
+    ![Universal Robots Academy main page](./Images/Session1/figure2.png)
 
 2.  Choose the option “Empezar ahora”
 
-    ![Universal Robots Academy welcome page](./Images/figure3.png)
+    ![Universal Robots Academy welcome page](./Images/Session1/figure3.png)
 
 3.  Choose the option “Únese ahora”
 
-    ![User account creation form](./Images/figure4.png)
+    ![User account creation form](./Images/Session1/figure4.png)
 
 4.  Fill the blanks with the mail address xxx@alumnes.ub.edu, and continue
 
-    ![Academy menu with different training options](./Images/figure5.png)
+    ![Academy menu with different training options](./Images/Session1/figure5.png)
 
 5.  Choose the option “Formacion online”
 
-    ![Online training options](./Images/figure6.png)
+    ![Online training options](./Images/Session1/figure6.png)
 
 6.  Choose the option “Formacion online de e-series”
 
-    ![e-Series learning modules](./Images/figure7.png)
+    ![e-Series learning modules](./Images/Session1/figure7.png)
 
 7.  Select the “e-Series Core Track” and follow the 8 lessons (84min aprox)
 
-    ![List of the 8 completed modules of the e-Series Core Track](./Images/figure8.png)
+    ![List of the 8 completed modules of the e-Series Core Track](./Images/Session1/figure8.png)
 
 8.  Listen the whole lessons and you will obtain a diploma like this one:
 
-    ![Example of a participation certificate](./Images/figure9.png)
+    ![Example of a participation certificate](./Images/Session1/figure9.png)
 
 ---
 
@@ -69,7 +69,7 @@ In this session we will develop a pick&place process in real-time on the robot, 
 * Impose joint/linear movements.
 * Impose round movements where possible.
 
-![Polyscope graphical programming environment](./Images/figure10.png)
+![Polyscope graphical programming environment](./Images/Session1/figure10.png)
 
 Perform the program in Polyscope and save it in a proper format.
 
