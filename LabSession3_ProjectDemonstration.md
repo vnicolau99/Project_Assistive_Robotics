@@ -10,9 +10,20 @@ The main objective of this laboratory session is to demonstrate the real-time ex
 
 We can give you an exemple of a Social-Assistive task, such as a hand-shake or a give-me 5! task, which you can adapt to your own designed task.
 
-<video width="640" height="480" controls>
-  <source src="https://github.com/manelpuig/Project_Assistive_Robotics/blob/main/Images/Session3/Video_Assistive.mp4" type="video/mp4">
-</video>
+<p>Aquí teniu un vídeo explicatiu sobre ROS 2:</p>
+
+<iframe 
+    width="560" 
+    height="315" 
+    src="https://youtu.be/uI1PVMG0rjg" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    allowfullscreen>
+</iframe>
+
+<p>La resta del meu text continua aquí...</p>
+
 
 **Laboratory development**
 
