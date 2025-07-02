@@ -1,6 +1,5 @@
 ![University of Barcelona Logo](Images/Session2/figure1.png)
 
-# Bachelor's Degree in Biomedical Engineering
 ## ROBOTICS AND CONTROL OF BIOMEDICAL SYSTEMS
 ### Robotic arm Universal Robot UR5e
 ### Laboratory session 2: UR5e Social/Assistive robotic task design
@@ -24,9 +23,8 @@ The **Previous Task** is the design of challenging assistive robotic tasks with 
 
 We have made, as an example, 2 different “social” robotic tasks:
 * Hand-shake task
-* Give-me 5!
+* Give-me 5! task
 
-### Task
 We show you the simulation programs performed using graphical scripting and python code.
 
 To create the proper python code to execute the simulation you will need to use the function:
