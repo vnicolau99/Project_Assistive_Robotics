@@ -1,0 +1,16 @@
+ Program
+   Init Variables
+   Robot Program
+     MoveJ
+       Waypoint_1
+       Waypoint_2
+       Set i_count=i_count+1
+       If i_count≟3
+         MoveJ
+           Waypoint_3
+           Wait: 1.0
+       If i_count≟5
+         MoveJ
+           Waypoint_4
+           Popup: Jop is done!
+           i_count≔0

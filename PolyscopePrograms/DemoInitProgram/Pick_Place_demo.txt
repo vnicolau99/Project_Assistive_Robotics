@@ -1,0 +1,25 @@
+ Program
+   Robot Program
+     MoveJ
+       Start
+     Pick
+       MoveJ
+         Approach_pick
+       MoveL
+         Pick
+         2FG Grip (50)
+         Approach_pick
+       MoveJ
+         Start
+     Place
+       MoveJ
+         Approach_place
+       MoveL
+         Place
+         2FG Release (60)
+         Approach_place
+       MoveJ
+         Start
+     Lamp
+       Wait: 2.0
+       Popup: End Program

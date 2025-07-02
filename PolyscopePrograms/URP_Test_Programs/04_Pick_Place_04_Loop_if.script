@@ -1,0 +1,141 @@
+def P04_Pick_Place_04_Loop_if():
+  set_gravity([0.0, 0.0, 9.82])
+  step_count_f85e626b_3ea0_410a_9837_77f882537824 = 0.0
+  thread Step_Counter_Thread_6da9f2ef_2b9a_4dde_abdc_4d2deed0ff9e():
+    while (True):
+      step_count_f85e626b_3ea0_410a_9837_77f882537824 = step_count_f85e626b_3ea0_410a_9837_77f882537824 + 1.0
+      sync()
+    end
+  end
+  run Step_Counter_Thread_6da9f2ef_2b9a_4dde_abdc_4d2deed0ff9e()
+  set_tcp(p[0.0,0.0,0.0,0.0,0.0,0.0])
+  set_payload(0.0)
+  set_standard_analog_input_domain(0, 1)
+  set_standard_analog_input_domain(1, 1)
+  set_tool_analog_input_domain(0, 1)
+  set_tool_analog_input_domain(1, 1)
+  set_analog_outputdomain(0, 0)
+  set_analog_outputdomain(1, 0)
+  set_input_actions_to_default()
+  set_safety_mode_transition_hardness(1)
+  set_tool_communication(False, 115200, 0, 1, 1.5, 3.5)
+  set_tool_output_mode(0)
+  set_tool_digital_output_mode(0, 1)
+  set_tool_digital_output_mode(1, 1)
+  set_tool_voltage(0)
+  global Start_p=p[-.000000000025, -.299999999996, .399999999990, .000000000137, 3.141592653590, .000000000088]
+  global Start_q=[-1.1103663659377716, -1.0202573035342617, -2.1853850732227205, -1.506746603473034, 1.5707963266148057, 0.4604299611495307]
+  global Approach_pick1_p=p[-.299999999998, -.400000000003, .299999999999, .000000000137, 3.141592653590, .000000000088]
+  global Approach_pick1_q=[-1.9444338104693735, -1.6581200720359908, -1.9783949604016229, -1.0758739477943937, 1.570796326569241, -0.3736374833820584]
+  global pick1_p=p[-.299999999968, -.399999999989, .199999999781, .000000000137, 3.141592653590, .000000000088]
+  global pick1_q=[-1.9444338104648313, -1.815187228268674, -2.1044164511320247, -0.792785300831298, 1.5707963265692433, -0.3736374833775358]
+  global Approach_pick2_p=p[.000000000066, -.800000000087, .299999999999, .000000000137, 3.141592638689, .000000000088]
+  global Approach_pick2_q=[-1.4033905068941763, -2.360661612424652, -0.9398730639249404, -1.4118543014026086, 1.5707963412920236, 0.167405820193129]
+  global pick2_p=p[.000000000002, -.799999999997, .199999999781, .000000000137, 3.141592638689, .000000000034]
+  global pick2_q=[-1.4033905051240119, -2.4326527422192843, -1.0728265360430846, -1.2069097019383008, 1.5707963265933564, 0.1674058219633035]
+  global Approach_place_p=p[.299999999967, -.399999999989, .299999999995, .000000000137, 3.141592653590, .000000000088]
+  global Approach_place_q=[-0.6574315929194281, -1.6581200719776463, -1.978394960470486, -1.0758739478158637, 1.5707963265957463, 0.9133647341678737]
+  global Place_p=p[.299999999967, -.399999999989, .199999999781, .000000000137, 3.141592653590, .000000000088]
+  global Place_q=[-0.6574315929699717, -1.8151872282715065, -2.104416451134586, -0.7927853008078722, 1.5707963266343694, 0.9133647341173304]
+  def Pick1():
+    $ 12 "Pick1" "noBreak"
+    $ 13 "Pick1"
+    $ 14 "MoveJ"
+    $ 15 "Approach_pick1" "breakAfter"
+    movej(get_inverse_kin(Approach_pick1_p, qnear=Approach_pick1_q), a=1.3962634015954636, v=1.0471975511965976)
+    $ 16 "MoveL"
+    $ 17 "pick1" "breakAfter"
+    movel(pick1_p, a=1.2, v=0.25)
+    $ 18 "Set DO[0]=HI:Pulse 0.5"
+    thread SinglePulse2():
+      set_standard_digital_out(0, True)
+      sleep(0.5)
+      set_standard_digital_out(0, False)
+    end
+    singlePulse2 = run SinglePulse2()
+    $ 19 "Approach_pick1" "breakAfter"
+    movel(Approach_pick1_p, a=1.2, v=0.25)
+    $ 20 "MoveJ"
+    $ 21 "Start" "breakAfter"
+    movej(get_inverse_kin(Start_p, qnear=Start_q), a=1.3962634015954636, v=1.0471975511965976)
+  end
+  def Pick2():
+    $ 22 "Pick2" "noBreak"
+    $ 23 "Pick2"
+    $ 24 "MoveJ"
+    $ 25 "Approach_pick2" "breakAfter"
+    movej(get_inverse_kin(Approach_pick2_p, qnear=Approach_pick2_q), a=1.3962634015954636, v=1.0471975511965976)
+    $ 26 "MoveL"
+    $ 27 "pick2" "breakAfter"
+    movel(pick2_p, a=1.2, v=0.25)
+    $ 28 "Set DO[0]=HI:Pulse 0.5"
+    thread SinglePulse3():
+      set_standard_digital_out(0, True)
+      sleep(0.5)
+      set_standard_digital_out(0, False)
+    end
+    singlePulse3 = run SinglePulse3()
+    $ 29 "Approach_pick2" "breakAfter"
+    movel(Approach_pick2_p, a=1.2, v=0.25)
+    $ 30 "MoveJ"
+    $ 31 "Start" "breakAfter"
+    movej(get_inverse_kin(Start_p, qnear=Start_q), a=1.3962634015954636, v=1.0471975511965976)
+  end
+  def Place1_2():
+    $ 32 "Place1_2" "noBreak"
+    $ 33 "Place"
+    $ 34 "MoveJ"
+    $ 35 "Approach_place" "breakAfter"
+    movej(get_inverse_kin(Approach_place_p, qnear=Approach_place_q), a=1.3962634015954636, v=1.0471975511965976)
+    $ 36 "MoveL"
+    $ 37 "Place" "breakAfter"
+    movel(Place_p, a=1.2, v=0.25)
+    $ 38 "Set DO[0]=Off"
+    set_standard_digital_out(0, False)
+    $ 39 "Approach_place" "breakAfter"
+    movel(Approach_place_p, a=1.2, v=0.25)
+    $ 40 "MoveJ"
+    $ 41 "Start" "breakAfter"
+    movej(get_inverse_kin(Start_p, qnear=Start_q), a=1.3962634015954636, v=1.0471975511965976)
+  end
+  def LED():
+    $ 42 "LED" "noBreak"
+    $ 43 "Loop digital_in[1]≟ False "
+    while (get_standard_digital_in(1) ==   False  ):
+      $ 44 "Set DO[0]=On"
+      set_standard_digital_out(0, True)
+      $ 45 "Wait: 0.2"
+      sleep(0.2)
+      $ 46 "Set DO[0]=Off"
+      set_standard_digital_out(0, False)
+      $ 47 "Wait: 0.2"
+      sleep(0.2)
+    end
+  end
+  while (True):
+    $ 1 "Robot Program"
+    $ 2 "'Init program'"
+    # 'Init program'
+    $ 3 "MoveJ"
+    $ 4 "Start" "breakAfter"
+    movej(get_inverse_kin(Start_p, qnear=Start_q), a=1.3962634015954636, v=1.0471975511965976)
+    $ 5 "Loop 3 times"
+    Loop_1 = 0
+    while (Loop_1 < 3):
+      $ 6 "If digital_in[0]≟ True "
+      if (get_standard_digital_in(0) ==   True  ):
+        $ 7 "Call Pick1"
+        Pick1()
+      else:
+        $ 8 "Else" "noBreak"
+        $ 9 "Call Pick2"
+        Pick2()
+      end
+      $ 10 "Call Place1_2"
+      Place1_2()
+      $ 11 "Call LED"
+      LED()
+      Loop_1 = Loop_1 + 1
+    end
+  end
+end

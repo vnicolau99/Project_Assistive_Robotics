@@ -1,0 +1,54 @@
+def P02_Trajectory_02_round():
+  set_safety_mode_transition_hardness(1)
+  set_tool_communication(False, 115200, 0, 1, 1.5, 3.5)
+  set_tool_output_mode(0)
+  set_tool_digital_output_mode(0, 1)
+  set_tool_digital_output_mode(1, 1)
+  set_tool_voltage(0)
+  set_tcp(p[0.0,0.0,0.0,0.0,0.0,0.0])
+  set_payload(0.0)
+  set_gravity([0.0, 0.0, 9.82])
+  step_count_3d3b50d2_5b0a_4410_922b_a14ac9ab12cf = 0.0
+  thread Step_Counter_Thread_9cc541fd_9665_40e5_ad61_9115f500b96d():
+    while (True):
+      step_count_3d3b50d2_5b0a_4410_922b_a14ac9ab12cf = step_count_3d3b50d2_5b0a_4410_922b_a14ac9ab12cf + 1.0
+      sync()
+    end
+  end
+  run Step_Counter_Thread_9cc541fd_9665_40e5_ad61_9115f500b96d()
+  set_standard_analog_input_domain(0, 1)
+  set_standard_analog_input_domain(1, 1)
+  set_tool_analog_input_domain(0, 1)
+  set_tool_analog_input_domain(1, 1)
+  set_analog_outputdomain(0, 0)
+  set_analog_outputdomain(1, 0)
+  set_input_actions_to_default()
+  global Waypoint_1_p=p[-.199999999890, -.200000000032, .200000000000, .000000000137, 3.141592638689, .000000000088]
+  global Waypoint_1_q=[-1.8654454372554232, -1.2346846680443821, -2.6457453354165446, -0.8319589767725013, 1.5707963265733558, -0.29464911016810014]
+  global Waypoint_2_p=p[-.400000000110, -.200000000032, .200000000000, .000000000137, 3.141592653590, .000000000088]
+  global Waypoint_2_q=[-2.375277178991806, -1.7048175904214569, -2.2468616683937466, -0.7607097214034235, 1.5707963265492402, -0.8044808519044802]
+  global Waypoint_3_p=p[-.400000000110, -.300000000219, .200000000000, .000000000137, 3.141592653590, .000000000088]
+  global Waypoint_3_q=[-2.228227919628095, -1.815187228347357, -2.1044164502436065, -0.792785301633181, 1.5707963265553901, -0.6574315925407737]
+  global Waypoint_4_p=p[-.500000000012, -.299999999996, .200000000000, .000000000137, 3.141592653590, .000000000088]
+  global Waypoint_4_q=[-2.3705259724671452, -1.9781406849689374, -1.8649954121122239, -0.8692528831377233, 1.570796326549483, -0.7997296453798306]
+  global Waypoint_5_p=p[-.500000000219, -.400000000219, .200000000000, .000000000137, 3.141592653590, .000000000088]
+  global Waypoint_5_q=[-2.257138273599889, -2.088855640238793, -1.686116623326214, -0.9374167166581193, 1.5707963265541152, -0.686341946512572]
+  global Waypoint_6_p=p[-.199999999891, -.400000000219, .200000000000, .000000000137, 3.141592653590, .000000000088]
+  global Waypoint_6_q=[-1.7317760697462488, -1.70481759049704, -2.24686166829627, -0.7607097214416498, 1.5707963265795715, -0.1609797426589319]
+  while (True):
+    $ 1 "Robot Program"
+    $ 2 "MoveL"
+    $ 3 "Waypoint_1" "breakAfter"
+    movel(Waypoint_1_p, a=1.2, v=0.25, r=0.05)
+    $ 4 "Waypoint_2" "breakAfter"
+    movel(Waypoint_2_p, a=1.2, v=0.25, r=0.05)
+    $ 5 "Waypoint_3" "breakAfter"
+    movel(Waypoint_3_p, a=1.2, v=0.25, r=0.05)
+    $ 6 "Waypoint_4" "breakAfter"
+    movel(Waypoint_4_p, a=1.2, v=0.25, r=0.048)
+    $ 7 "Waypoint_5" "breakAfter"
+    movel(Waypoint_5_p, a=1.2, v=0.25, r=0.05)
+    $ 8 "Waypoint_6" "breakAfter"
+    movel(Waypoint_6_p, a=1.2, v=0.25, r=0.05)
+  end
+end

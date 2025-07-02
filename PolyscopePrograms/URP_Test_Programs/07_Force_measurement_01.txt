@@ -1,0 +1,22 @@
+ Program
+   Init Variables
+   Robot Program
+     MoveL
+       Waypoint_1
+     Force
+       MoveL
+         Waypoint_2
+     If Fmax≟1
+       Call Park
+   Park
+     MoveL
+       Waypoint_3
+       Set DO[0]=Off
+       Wait: 3.0
+       Fmax≔0
+   Event ForceValue>40
+     Fmax≔1
+     Set DO[0]=On
+   Thread_1
+     Wait: 0.01
+     ForceValue≔force()

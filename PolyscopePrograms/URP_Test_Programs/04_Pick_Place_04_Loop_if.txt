@@ -1,0 +1,48 @@
+ Program
+   Robot Program
+     'Init program'
+     MoveJ
+       Start
+     Loop 3 times
+       If digital_in[0]≟ True 
+         Call Pick1
+       Else
+         Call Pick2
+       Call Place1_2
+       Call LED
+   Pick1
+     Pick1
+       MoveJ
+         Approach_pick1
+       MoveL
+         pick1
+         Set DO[0]=HI:Pulse 0.5
+         Approach_pick1
+       MoveJ
+         Start
+   Pick2
+     Pick2
+       MoveJ
+         Approach_pick2
+       MoveL
+         pick2
+         Set DO[0]=HI:Pulse 0.5
+         Approach_pick2
+       MoveJ
+         Start
+   Place1_2
+     Place
+       MoveJ
+         Approach_place
+       MoveL
+         Place
+         Set DO[0]=Off
+         Approach_place
+       MoveJ
+         Start
+   LED
+     Loop digital_in[1]≟ False 
+       Set DO[0]=On
+       Wait: 0.2
+       Set DO[0]=Off
+       Wait: 0.2
