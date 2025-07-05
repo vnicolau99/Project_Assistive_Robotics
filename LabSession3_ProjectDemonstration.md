@@ -17,3 +17,5 @@ We can give you an exemple of a Social-Assistive task, such as a hand-shake or a
 During the first hour of the laboratory session, students will finish and verify the real time execution of the assistive robotic tasks designed in the previous session. 
 
 During the second hour, students will make a presentation of their Social-Assistive designed task.
+
+End
