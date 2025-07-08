@@ -141,12 +141,17 @@ The final program will be like:
 ![Python code final](Images/Session2/figure9.png)
 
 **suggestion**: you can improve and automate your code if you use:
-```python
-...
-Init_j = np.radians(Init_target.Joints())
-movej_init = f"movej([{Init_j[0,0]},{Init_j[0,1]}, {Init_j[0,2]}, {Init_j[0,3]}, {Init_j[0,4]}, {Init_j[0,5]}],{accel_mss},{speed_ms},{timej},{blend_r})"
-...
-```
+- For moveJ:
+    ```python
+    j1, j2, j3, j4, j5, j6 = list(np.radians(Target.Joints()))
+    movej_Target = f"movej([{j1},{j2}, {j3}, {j4}, {j5}, {j6}],{accel_mss},{speed_ms},{time_high},{blend_r})"
+    ```
+- For moveL:
+    ```python
+    X, Y, Z, Roll, Pitch, Yaw = Pose_2_TxyzRxyz(Target.Pose())
+    movel_Target = f"movel(p[{X}, {Y}, {Z}, {Roll}, {Pitch}, {Yaw}], a={accel_mss}, v={speed_ms}, t={timel}, r={blend_r})"
+    ````
+
 
 **Laboratory development**
 
