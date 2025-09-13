@@ -56,7 +56,7 @@ def Give_me_5():
     print("Give me 5! FINISHED")
 # Main function
 def main():
-    Robot_online(True)
+    Robot_online(False) # True for real robot, False for simulation
     Init()
     Hand_shake()
     Give_me_5()  

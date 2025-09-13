@@ -21,7 +21,7 @@ Universal Robots has a very interesting academy programme where you are able to 
 
 ---
 
-## Robot developer diploma
+## 1. Robot developer diploma
 
 This task must be performed individually, and you have to perform this task session following the instructions below:
 
@@ -59,7 +59,7 @@ This task must be performed individually, and you have to perform this task sess
 
 ---
 
-## On-line programming UR5e
+## 2. On-line programming UR5e
 
 The online programming is performed using Polyscope program. You have already seen in the UR tutorial how to program a pick&place process on polyscope program.
 
@@ -77,8 +77,6 @@ Perform the program in Polyscope and save it in a proper format.
 
 ## Deliverable (D1.1)
 
-The deliverable for this Practical exercise is:
+The deliverable for this Practical exercise is the PDF file of your diploma.
 
-* the PDF file of your diploma.
-    * Each student has to upload his diploma. Upload this zip file when the task was created, in the virtual campus, including the name of the student.
-* The “PickPlace.URP” program you have created. One program per laboratory group.
+Each student has to upload his diploma. Upload this zip file when the task was created, in the virtual campus, including the name of the student.

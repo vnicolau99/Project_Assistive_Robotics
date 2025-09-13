@@ -16,10 +16,10 @@ Simulation (Off-line programming) is an interesting tool enabling the robot task
 
 This session has a previous task to be delivered at the beginning of the session.
 
-## **1. Previous task**
-The **Previous Task** is the design of challenging assistive robotic tasks with the UR5e robotic arm and the offline simulation using Graphical scripting and Python code integrated into RoboDK.
+## **1. Simple Social task**
+The **Task** is the design of challenging assistive robotic tasks with the UR5e robotic arm and the offline simulation using Graphical scripting and Python code integrated into RoboDK.
 
-![RoboDK interface showing a UR5e robot with a hand tool positioned over a table, with a program tree for an assistive task.](Images/Session2/figure2.png)
+![RoboDK interface](Images/Session2/figure2.png)
 
 We have made, as an example, 2 different “social” robotic tasks:
 * Hand-shake task
@@ -27,12 +27,11 @@ We have made, as an example, 2 different “social” robotic tasks:
 
 We show you the simulation programs performed using graphical scripting and python code.
 
-To create the proper python code to execute the simulation you will need to use the function:
+To create the proper python code to execute the simulation we have used the function:
 `robot.MoveL(target_object_name, True)`
 
-![Python code snippet showing the setup for a RoboDK project, including loading the robot, base, tool, and various targets, and defining function placeholders.](Images/Session2/figure3.png)
+Verify the simulation of the 2 tasks and adapt the code to your own Social/Assistive designed task.
 
-This has to be delivered before the laboratory session.
 
 ## **2. Real-time execution of the assistive task to the real robot**
 Once you have verified that the simulation is working properly, you can proceed with the **real-time execution** of the designed and simulated assistive robotic tasks on the real UR5e robot arm.
@@ -51,7 +50,7 @@ You have to select the post-processor: **Universal Robot URP post-processor**
 
 This gives you the program in absolute coordinates (with respect to the UR5e base). This is the recommended method.
 
-    ![A code snippet of a URScript program showing the 'movel' command with specific coordinates and parameters.](Images/Session2/figure4.png)
+![](./Images/Session2/figure4.png)
 
 Save the programs on a pen-drive and execute them directly on Polyscope.
 
@@ -117,7 +116,7 @@ urscript_command = "movej([1.0, -2.0, 3.0, -4.0, 5.0, -6.0], a=1.0, v=0.1)\n"
 robot_socket.send(urscript_command.encode())
 ````
 
-c) Handle Responses: After sending commands, you may need to receive and process responses from the robot controller.
+c) Handle Responses: After sending commands, you may need to receive and process responses from the robot controller. If we do not need response information we will wait a short period of time (the desired execution time).
 
 ````Python
 response = robot_socket.recv(1024)
@@ -130,15 +129,7 @@ d) Close the Socket: It's essential to close the socket when you're done.
 robot_socket.close()
 ````
 
-Take the template we deliver to you and make the necessary changes to adapt it to your Pick&Place program. 
-
-Review the code example “Assistive_Hand_HW_SW_sockets.py” and adapt it to your Social-Assistive designed task.
-
-The final program will be like:
-
-![Python code final](Images/Session2/figure8.png)
-
-![Python code final](Images/Session2/figure9.png)
+Take the template we deliver to you and make the necessary changes to adapt it to your social/assistive program. 
 
 **suggestion**: you can improve and automate your code if you use:
 - For moveJ:
@@ -151,7 +142,7 @@ The final program will be like:
     X, Y, Z, Roll, Pitch, Yaw = Pose_2_TxyzRxyz(Target.Pose())
     movel_Target = f"movel(p[{X}, {Y}, {Z}, {Roll}, {Pitch}, {Yaw}], a={accel_mss}, v={speed_ms}, t={timel}, r={blend_r})"
     ````
-
+- Try an OOP approach with a class RobotUR5e with atributes and methods.
 
 **Laboratory development**
 

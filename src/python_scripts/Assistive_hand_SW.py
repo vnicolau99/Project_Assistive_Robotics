@@ -40,6 +40,7 @@ def main():
     Init()
     Hand_shake()
     Give_me_5()
+    Init()
      
 if __name__ == "__main__":
     main()
