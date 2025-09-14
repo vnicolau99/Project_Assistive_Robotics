@@ -79,13 +79,16 @@ When you run the “MainProgram”, the real robot moves simultaneously with the
 Run the pick & place program from RoboDK and the real UR5 robot will perform the movements.
 
 #### Execution within python code
-You can create a python code to fully control the Pick and Place process. The options you have selected in the “Menu-bar” have their specific function in the RoboDK library. You only have to add a function to choose between Software (SW) or Hardware (HW) execution.
+You can create a python code to fully control the simple task `Assistive_hand_SW.py` process. The options you have selected in the “Menu-bar” have their specific function in the RoboDK library:
+- You only have to add a function to choose between Software (SW) or Hardware (HW) execution.
 
-Robot speed is fixed with `robot.setSpeed(xx)`.
+- Robot speed is fixed with `robot.setSpeed(xx)`.
 
-Simulation robot speed is fixed with the popup slider.
+- Simulation robot speed is fixed with the popup slider.
 
-![Python code showing how to establish a connection to the robot for online programming vs. running in simulation mode.](Images/Session2/figure7.png)
+- The adapted version corresponds to the `Assistive_hand_SW_HW.py` code. 
+
+![Python code](Images/Session2/figure7.png)
 
 ### **2.3. Python sockets**
 At the Script Level, URScript is the programming language that controls the robot. The URScript includes variables, types, and flow control statements. There are also built-in variables and functions that monitor and control I/O and robot movements.
@@ -128,24 +131,42 @@ d) Close the Socket: It's essential to close the socket when you're done.
 ````Python
 robot_socket.close()
 ````
+The adapted first version corresponds to the `Assistive_hand_SW_HW_sockets.py` code.
 
-Take the template we deliver to you and make the necessary changes to adapt it to your social/assistive program. 
+## **3. Assistive/Social robotic task dessign**
 
-**suggestion**: you can improve and automate your code if you use:
-- For moveJ:
-    ```python
-    j1, j2, j3, j4, j5, j6 = list(np.radians(Target.Joints()))
-    movej_Target = f"movej([{j1},{j2}, {j3}, {j4}, {j5}, {j6}],{accel_mss},{speed_ms},{time_high},{blend_r})"
-    ```
-- For moveL:
-    ```python
-    X, Y, Z, Roll, Pitch, Yaw = Pose_2_TxyzRxyz(Target.Pose())
-    movel_Target = f"movel(p[{X}, {Y}, {Z}, {Roll}, {Pitch}, {Yaw}], a={accel_mss}, v={speed_ms}, t={timel}, r={blend_r})"
-    ````
-- Try an OOP approach with a class RobotUR5e with atributes and methods.
+The objective is for each laboratory group to design an original Assistive/Social robotic task.
 
-**Laboratory development**
+**Laboratory Task:**
+
+Take the simple task template (Assistive_hand_SW.py) we deliver to you and make the necessary changes to adapt it to your social/assistive program. 
+
+**Delivery**:
+- Students group have to upload the Link to his github project
+- The project has to contain the original Assistive/Social robotic task in a `Custom_Assistive_SW.py` file on `pyhon_scripts`folder
+
+## **Laboratory development**
 
 During the first hour of the laboratory session, students will see a demonstration of the 3 methods from a professor's demo project in RoboDK.
 
-During the second hour, students will adapt and generate the proper code for their Social-Assistive designed task.
+During the second hour, students will adapt and generate the proper and obtimised code for their Social-Assistive designed task. 
+
+**Suggestions**: 
+- You can improve and automate your code if you use:
+    - For moveJ:
+        ```python
+        j1, j2, j3, j4, j5, j6 = list(np.radians(Target.Joints()))
+        movej_Target = f"movej([{j1},{j2}, {j3}, {j4}, {j5}, {j6}],{accel_mss},{speed_ms},{time_high},{blend_r})"
+        ```
+    - For moveL:
+        ```python
+        X, Y, Z, Roll, Pitch, Yaw = Pose_2_TxyzRxyz(Target.Pose())
+        movel_Target = f"movel(p[{X}, {Y}, {Z}, {Roll}, {Pitch}, {Yaw}], a={accel_mss}, v={speed_ms}, t={timel}, r={blend_r})"
+        ````
+- Try an OOP approach with a class RobotUR5e with atributes and methods.
+
+**Objectives:**
+- All the group members have to contribute to the final solution (with github project sync updates)
+- demonstration tests have to be done with the real UR5e robot arm.
+- This has to be done during sessions 2 and 3.
+- The final presentation will be done in session 4

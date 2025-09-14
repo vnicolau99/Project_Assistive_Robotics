@@ -14,6 +14,7 @@ We can give you an exemple of a Social-Assistive task, such as a hand-shake or a
 
 **Laboratory development**
 
-During the first hour of the laboratory session, students will finish and verify the real time execution of the assistive robotic tasks designed in the previous session. 
-
-During the second hour, students will make a presentation of their Social-Assistive designed task.
+Each Laboratory group has 10 minutes project presentation with:
+- Project presentation
+- Software and Hardware live demonstration of the assistive robotic tasks designed in the previous session. 
+- All the students have to contribute to the final presentation
