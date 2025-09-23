@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
     "python.defaultInterpreterPath": "/Users/alicegiraud/.pyenv/shims/python",
     "terminal.integrated.env.osx": {
@@ -6,3 +7,5 @@
         "python-envs.defaultEnvManager": "ms-python.python:system",
         "python-envs.pythonProjects": [] 
     }
+=======
+>>>>>>> 5ad54952f6399ef5734afd169291c9687008fab5
