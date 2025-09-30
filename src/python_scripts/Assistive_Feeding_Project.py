@@ -1,7 +1,7 @@
 from robodk import robolink, robomath
 import time, socket
 
-# --- Connect to RoboDK ---
+# Connection to RoboDK
 RDK = robolink.Robolink()
 robot = RDK.Item('UR5e')
 tool = RDK.Item('Hand')
@@ -9,7 +9,7 @@ base = RDK.Item('UR5e Base')
 robot.setPoseFrame(base)
 robot.setTool(tool)
 
-# --- Targets ---
+# Targets
 init = RDK.Item('Init')
 app_plate = RDK.Item('App_plate')
 pick_food = RDK.Item('Pick_Food')
@@ -17,18 +17,18 @@ out_plate = RDK.Item('Out_plate')
 app_mouth = RDK.Item('App_mouth')
 in_mouth = RDK.Item('In_mouth')
 
-# --- UR5e real robot connection ---
+# UR5e real robot connection
 ROBOT_IP = "192.168.1.5"
 ROBOT_PORT = 30002
 robot_socket = None
 
-# Motion params
+# Motion parameters
 accel_mss = 1.2
 speed_ms = 0.25
 timel = 4
 timej = 6
 
-# --- URScript commands ---
+# URScript commands
 set_tcp = "set_tcp(p[0.000000,0.000000,0.050000,0.000000,0.000000,0.000000])"
 
 # Define positions (joint values or p[] depending on your needs)
@@ -39,7 +39,7 @@ movel_out_plate = f"movel(p[0.3, -0.1, 0.15, 0, 3.14, 0], {accel_mss}, {speed_ms
 movel_app_mouth = f"movel(p[0.4, 0.0, 0.15, 0, 3.14, 0], {accel_mss}, {speed_ms}, {timel}, 0.0)"
 movel_in_mouth = f"movel(p[0.4, 0.0, 0.05, 0, 3.14, 0], {accel_mss}, {speed_ms}, {timel}, 0.0)"
 
-# --- Socket helpers ---
+# Socket
 def check_robot_port(ip, port):
     global robot_socket
     try:
@@ -56,10 +56,10 @@ def send_ur_script(command):
 def wait_robot(t):
     time.sleep(t)
 
-# --- Feeding sequence ---
+# Feeding sequence
 def Feeding():
     print("Feeding sequence...")
-    # --- Simulation ---
+    # Simulation
     robot.MoveJ(init)
     robot.MoveJ(app_plate)
     robot.MoveL(pick_food)
@@ -71,7 +71,7 @@ def Feeding():
     robot.MoveL(app_mouth)
     robot.MoveJ(app_plate)
 
-    # --- Real robot ---
+    # Real robot
     if robot_is_connected:
         send_ur_script(set_tcp)
         wait_robot(1)
@@ -95,7 +95,7 @@ def Feeding():
     else:
         print("UR5e not connected → Simulation only")
 
-# --- Main ---
+# Main
 def main():
     global robot_is_connected
     robot_is_connected = check_robot_port(ROBOT_IP, ROBOT_PORT)
