@@ -35,27 +35,27 @@ set_tcp = "set_tcp(p[0.000000,0.000000,0.050000,0.000000,0.000000,0.000000])"
 # Define positions of joints
 angs1=np.radians(init.Joints()) 
 angsr1=list(angs1[0])
-movej_init = f"movel({angsr1}, {accel_mss}, {speed_ms}, {timel}, 0.0)"
+movej_init = f"movel({angsr1}, {accel_mss}, {speed_ms},{timel},0.0)"
 
 angs2=np.radians(app_plate.Joints()) 
 angsr2=list(angs2[0])
-movel_app_plate = f"movel({angsr2}, {accel_mss}, {speed_ms}, {timel}, 0.0)"
+movel_app_plate = f"movel({angsr2}, {accel_mss}, {speed_ms},{timel},0.0)"
 
 angs3=np.radians(pick_food.Joints()) 
 angsr3=list(angs3[0])
-movel_pick_food = f"movel({angsr3}, {accel_mss}, {speed_ms}, {timel}, 0.0)"
+movel_pick_food = f"movel({angsr3}, {accel_mss}, {speed_ms},{timel},0.0)"
 
 angs4=np.radians(out_plate.Joints()) 
 angsr4=list(angs4[0])
-movel_out_plate = f"movel({angsr4}, {accel_mss}, {speed_ms}, {timel}, 0.0)"
+movel_out_plate = f"movel({angsr4}, {accel_mss}, {speed_ms},{timel},0.0)"
 
 angs5=np.radians(app_mouth.Joints()) 
 angsr5=list(angs5[0])
-movel_app_mouth = f"movel({angsr5}, {accel_mss}, {speed_ms}, {timel}, 0.0)"
+movel_app_mouth = f"movel({angsr5}, {accel_mss}, {speed_ms},{timel},0.0)"
 
 angs6=np.radians(in_mouth.Joints()) 
 angsr6=list(angs6[0])
-movel_in_mouth = f"movel({angsr6}, {accel_mss}, {speed_ms}, {timel}, 0.0)"
+movel_in_mouth = f"movel({angsr6}, {accel_mss}, {speed_ms},{timel},0.0)"
 
 # Socket
 def check_robot_port(ip, port):
